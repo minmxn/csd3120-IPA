@@ -1,2 +1,3 @@
 # csd3120-IPA
-# Seet Min Yi / 2002088
+# Name: Seet Min Yi 
+# Student ID: 2002088
