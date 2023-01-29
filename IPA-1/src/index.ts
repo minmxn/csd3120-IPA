@@ -40,8 +40,9 @@
 // createXRScene('renderCanvas',null);
 
 import {Engine, MeshBuilder,Scene} from 'babylonjs';
+import {AdvancedDynamicTexture, TextBlock} from 'babylonjs-gui';
 
-export function createVirtualTableScene(canvasID: string) {
+export function createXRScene(canvasID: string) {
     const engine = new Engine(<HTMLCanvasElement>document.getElementById(canvasID), true);
     const scene = new Scene(engine);
     scene.createDefaultCameraOrLight();
@@ -62,6 +63,18 @@ export function createVirtualTableScene(canvasID: string) {
     carbon.position.x = 0;
     carbon.position.z = 5;
 
+    const helloPlane = MeshBuilder.CreatePlane('hello plane',{size:10});
+    helloPlane.position.y = hydrogen.position.y - 1;
+    helloPlane.position.z = hydrogen.position.z;
+    helloPlane.position.x = hydrogen.position.x + 1;
+
+    const helloTexture = AdvancedDynamicTexture.CreateForMesh(helloPlane);
+    const helloText = new TextBlock('hello');
+    helloText.text = 'hydrogen   helium   carbon';
+    helloText.color = 'purple';
+    helloText.fontSize = 30;
+    helloTexture.addControl(helloText);
+
     // Choose either a virtual environment or a live video feed for AR
     const xr = scene.createDefaultXRExperienceAsync({
         uiOptions: {
@@ -75,4 +88,4 @@ export function createVirtualTableScene(canvasID: string) {
 }
 
 // For testing
-createVirtualTableScene('renderCanvas');
+createXRScene('renderCanvas');
