@@ -1,17 +1,21 @@
 {
-  "name": "mei",
+  "name": "min_m",
   "version": "1.0.0",
-  "description": "first package",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "serve": "webpack serve",
-    "start": "webpack serve --open"
+    "start": "webpack serve--open"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "babylonjs": "^5.44.0",
+    "babylonjs-gui": "^5.44.0"
+  },
   "devDependencies": {
     "html-webpack-plugin": "^5.5.0",
     "ts-loader": "^9.4.2",
@@ -19,9 +23,5 @@
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
-  },
-  "dependencies": {
-    "babylonjs": "^5.42.1",
-    "babylonjs-gui": "^5.42.1"
   }
 }
