@@ -1,3 +1,4 @@
+// Import necessary modules from babylonjs
 import {
     AbstractMesh,
     ActionManager,
@@ -21,28 +22,32 @@ import {
     UtilityLayerRenderer,
     Vector3,
   } from "babylonjs";
+
+  // Import TextPlane class from local file
   import { TextPlane } from "./text-plane";
   
+  // Define interface for the mesh
   export interface TheMesh {
-    scene: Scene;
-    mesh: AbstractMesh;
-    boundingbox: Mesh;
-    mat:Material;
-    label: TextPlane;
-    onInterectObservable: Observable<boolean>;
+    scene: Scene; // Scene that the mesh belongs to
+    mesh: AbstractMesh; // Main mesh
+    boundingbox: Mesh; // Bounding box for the mesh
+    mat: Material; // Material of the mesh
+    label: TextPlane; // Label for the mesh
+    onInterectObservable: Observable<boolean>; // Observable for the mesh's interaction
   }
   
+  // Define class for the sphere, which extends the AbstractMesh class and implements the TheMesh interface
   export class TheSphere extends AbstractMesh implements TheMesh {
-    scene: Scene;
-    utillayer:UtilityLayerRenderer;
-    mesh: AbstractMesh;
-    boundingbox: Mesh;
-    mat:Material;
-    label: TextPlane;
-    gizmo:BoundingBoxGizmo;
-    onInterectObservable: Observable<boolean>;
-    name: string
-    options: { diameter: number }
+    scene: Scene; // Scene that the mesh belongs to
+    utillayer: UtilityLayerRenderer; // Utility layer renderer
+    mesh: AbstractMesh; // Main mesh
+    boundingbox: Mesh; // Bounding box for the mesh
+    mat: Material; // Material of the mesh
+    label: TextPlane; // Label for the mesh
+    gizmo: BoundingBoxGizmo; // Bounding box gizmo for the mesh
+    onInterectObservable: Observable<boolean>; // Observable for the mesh's interaction
+    name: string; // Name of the mesh
+    options: { diameter: number }; // Options for the mesh
     constructor(name: string, options: { diameter: number }, scene: Scene,utillayer:UtilityLayerRenderer) {
       super(name, scene);
       this.scene = scene;
@@ -50,6 +55,8 @@ import {
       this.options=options
       this.utillayer=utillayer;
     }
+
+    // Method to create the model asynchronously and return the parent
     public static async  CreateModel(parent:TheSphere):Promise<TheSphere>
     {
         SceneLoader.ImportMeshAsync('','asset/models/',parent.name+".glb",parent.scene).then(result=>{
@@ -79,68 +86,33 @@ import {
           parent.mesh.addChild(parent.label.mesh);
           parent.label.mesh.position.setAll(0)
           parent.label.mesh.position.y=-parent.options.diameter / 2 + 0.2
-          // parent.CreateBoundingBox().then(result=>{
-          //   parent.boundingbox=result
-          //   parent.addChild(result)
-          // });
           parent.initActions();
-          //parent.CreateControls();
       });
       
         return parent
     }
-    private CreateControls()
-    {
-      var sixDofDragBehavior = new SixDofDragBehavior()
-      this.addBehavior(sixDofDragBehavior)
-      var multiPointerScaleBehavior = new MultiPointerScaleBehavior()
-      this.addBehavior(multiPointerScaleBehavior)
-    }
-    private async CreateBoundingBox()
-    {
-      var boundingBox = BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox(this.mesh as Mesh)
-      //var boundingBoxtext = BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox(this.label.mesh)
-      //var utilLayer = new UtilityLayerRenderer(this.scene);
-      this.utillayer.utilityLayerScene.autoClearDepthAndStencil = false;
-      this.gizmo = new BoundingBoxGizmo(BABYLON.Color3.FromHexString("#0984e3"), this.utillayer)
-      this.gizmo.attachedMesh=boundingBox;
-      var sixDofDragBehavior = new SixDofDragBehavior()
-      boundingBox.addBehavior(sixDofDragBehavior)
-      var multiPointerScaleBehavior = new MultiPointerScaleBehavior()
-      boundingBox.addBehavior(multiPointerScaleBehavior)
-      return boundingBox
-    }
+
     private initActions() {
-        const actionManager = (this.actionManager = new ActionManager(this.scene));
-        actionManager.isRecursive = true;
-        //Reset sphere
-        this.scene.actionManager.registerAction(
-            new ExecuteCodeAction(
-            {
-                trigger: ActionManager.OnKeyUpTrigger,
-                parameter: "r",
-            },
-            () => {
-                this.boundingbox.scaling.setAll(1.5);
-                this.boundingbox.rotation=new Vector3(0,0,Math.PI);
-                console.log("r was pressed: reset " + this.name);
-            }
-            )
-        );
-        // //Reset sphere
-        // this.scene.actionManager.registerAction(
-        //     new ExecuteCodeAction(
-        //     {
-        //         trigger: ActionManager.OnKeyUpTrigger,
-        //         parameter: "e",
-        //     },
-        //     () => {
-        //       //i do this because it wouldnt work in a async function
-        //       this.gizmo.attachedMesh = !this.gizmo.attachedMesh ? this.boundingbox : null            
-        //     }
-        //     )
-        // );
-  
-    }
+      // Create a new action manager for the scene and enable recursive actions
+      const actionManager = (this.actionManager = new ActionManager(this.scene));
+      actionManager.isRecursive = true;
+      
+      // Register an action to reset the sphere when the "r" key is pressed
+      this.scene.actionManager.registerAction(
+          new ExecuteCodeAction(
+          {
+              trigger: ActionManager.OnKeyUpTrigger,
+              parameter: "r",
+          },
+          () => {
+              // Reset the bounding box scaling and rotation
+              this.boundingbox.scaling.setAll(1.5);
+              this.boundingbox.rotation = new Vector3(0, 0, Math.PI);
+              // Log the reset action to the console
+              console.log("r was pressed: reset " + this.name);
+          }
+          )
+      );
+  }
   }
   
