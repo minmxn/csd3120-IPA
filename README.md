@@ -26,5 +26,6 @@ Meeting the requirements for IPA-B:<br />
 With XRAuthor Integration:<br />
 cd to the <b>hello-xr-xrauthor/hello-xr</b> directory<br />
 enter command <b><i>npm run build</i></b><br />
+open chrome browser and go to <b><i>localhost:9000</i></b><br />
 Description:<br />
 Video will be able to play/pause when you click on the plane with the XRAuthor video.<br />
