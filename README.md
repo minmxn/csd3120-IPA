@@ -15,7 +15,7 @@ enter command <b><i>npm run build</i></b><br />
 Description:<br />
 <b>B1.</b> The virtual table with 3D Hydrogen and Oxygen atoms that correspond to those used in the recorded video from A2 can be visualized.<br />
 <b>B1-1.</b>The consistent theme of a classroom is being utilized in a 3D virtual environment (VE) that is suitable for VR.<br />
-<b>B2.</b> The user has the ability to pick up Hydrogen and Oxygen objects in the environment using a grab interaction and move them around.<br />
+<b>B2.</b> The user as the ability to use a grab interaction to pick up atom and molecule objects to translate them in the environment.<br />
 <b>B3.</b> The user is able to use an attach interaction to join Hydrogen and Oxygen atom objects with a bond to eventually construct a H2O molecule. The presence of bonds between atoms is visually evident.<br />
 <br />
 
