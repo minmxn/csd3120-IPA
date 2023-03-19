@@ -11,9 +11,9 @@ open chrome browser and go to <b><i>localhost:3000</i></b><br />
 
 Debugging (if anything goes wrong):<br />
 cd to the <b>hello-xr</b> directory<br />
-enter command <b><i>npm run build</i></b><br /><br />
+enter command <b><i>npm run build</i></b><br />
 
-Description:<br />
+Meeting the requirements for IPA-B:<br />
 <b>B1.</b> The virtual table with 3D Hydrogen and Oxygen atoms that correspond to those used in the recorded video from A2 can be visualized.<br />
 <b>B1-1.</b>The consistent theme of a classroom is being utilized in a 3D virtual environment (VE) that is suitable for VR.<br />
 <b>B2.</b> The user is able to use a grab interaction to pick up atom and molecule objects to translate them in the environment.<br />
