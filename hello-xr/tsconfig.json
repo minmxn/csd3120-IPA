@@ -12,18 +12,19 @@
         "lib": [
             "dom",
             "es2015.promise",
-            "es2015.iterable",
+            "es6",
             "es5"
         ],
-        //"declaration": true,
+       // "declaration": true,
         "outDir": "./src",
         "types": [
             "babylonjs",
             "babylonjs-gui",
-            "babylonjs-materials"
+            "babylonjs-materials",
+            "babylonjs-loaders"
         ]
     },
     "files": [
-        "./src/index.ts"
+        "./src/main.ts",
     ]
-} 
+}

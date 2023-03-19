@@ -1,15 +1,14 @@
 const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebPackPlugin =require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin')
-
 module.exports = {
-    entry: './src/index.ts',
+    entry: './src/main.ts',
     output: {
-        filename: 'index.js',
+        filename: 'main.js',
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
-        extensions: [".ts", ".js"]
+        extensions: [".ts",".js"]
     },
     module: {
         rules: [
@@ -19,12 +18,11 @@ module.exports = {
     mode: "development",
     devtool: 'inline-source-map',
     devServer: {
-        // static: true,
+        static: true,
         port: 3000,
-        server: 'http'
     },
-    plugins: [
-        new HtmlWebpackPlugin({
+    plugins:[
+        new HtmlWebPackPlugin({
             template: path.resolve(__dirname,'src/index.html')
         }),
         new CopyPlugin({

@@ -1,8 +1,8 @@
 {
-  "name": "hello-xr",
+  "name": "a1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
@@ -13,12 +13,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babylonjs": "^5.44.0",
-    "babylonjs-gui": "^5.50.1",
-    "babylonjs-loaders": "^5.50.1",
-    "babylonjs-materials": "^5.50.1"
+    "babylonjs": "^5.43.0",
+    "babylonjs-gui": "^5.43.0",
+    "babylonjs-loaders": "^5.43.0",
+    "babylonjs-materials": "^5.43.0"
   },
   "devDependencies": {
+    "@babylonjs/core": "^5.43.2",
+    "@babylonjs/loaders": "^5.43.2",
     "copy-webpack-plugin": "^11.0.0",
     "html-webpack-plugin": "^5.5.0",
     "ts-loader": "^9.4.2",
