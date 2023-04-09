@@ -1,6 +1,6 @@
 # IPA-B Feedback for SEET MIN YI
                                         
-**OVERALL IPA-A + IPA-B Grade**: D+
+**OVERALL IPA-A + IPA-B Grade**: C+
 
 **IPA-B Grade**: C
                                         
