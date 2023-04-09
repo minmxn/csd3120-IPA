@@ -2,7 +2,7 @@
                                         
 **OVERALL IPA-A + IPA-B Grade**: D+
 
-**IPA-B Grade**: F
+**IPA-B Grade**: C
                                         
 ## B1
 incomplete-looking 3D scene
@@ -28,3 +28,6 @@ Unclear README instructions;
 Interactions are buggy;
 
 Sometimes teleport away when interacting with objects;
+
+## Integration BONUS
+can load in XRAuthor interface and utilize authoring data in the scene via APIs
